@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="buidl.js"></script>
+  <script src="qrcode.js"></script>
+</head>
+<body>
+  <button onclick="getAddress();">Get New Address</button>
+  <table width="100%">
+    <tr>
+      <td width="50%"><div id="qrAddr"></div></td>
+      <td width="50%"><div id="qrPk"></div></td>
+    </tr> 
+    <tr>
+      <td><div id="addressOut"></div></td>
+      <td><div id="pkOut"></div></td>
+    </tr>  
+  </table>
+  <script>
+    function getAddress() {
+      var createNew = buidl.getNewAddress();
+      var addr = createNew.p2wpkh;
+      var pk = createNew.pk;
+
+      document.getElementById("addressOut").innerHTML = "<b>Address:</b> " + addr;
+      document.getElementById("pkOut").innerHTML = "<b>Private Key:</b> " + pk;
+
+      // Clear old qrAddr
+      document.getElementById("qrAddr").innerHTML = "";
+      document.getElementById("qrPk").innerHTML = "";
+
+      new QRCode(document.getElementById("qrAddr"), addr);
+      new QRCode(document.getElementById("qrPk"), pk);
+    }
+  </script>
+</body>
+</html>
