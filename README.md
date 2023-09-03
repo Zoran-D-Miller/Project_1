@@ -1,5 +1,4 @@
-# Project_1
-QR-Code Paper Wallet Generator (BTC)
+# Project_1: QR-Code Paper Wallet Generator (BTC)
 
 White Paper: Bitcoin Paper Wallet Generator
 
